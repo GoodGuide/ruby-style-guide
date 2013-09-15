@@ -783,19 +783,10 @@ Never use `::` for regular method invocation.
     end
     ```
 
-* Avoid `self` where not required. (It is only required when calling a self write accessor.)
+* Use explicit `self` in sufficiently complex methods.
 
     ```Ruby
     # bad
-    def ready?
-      if self.last_reviewed_at > self.last_updated_at
-        self.worker.update(self.content, self.options)
-        self.status = :in_progress
-      end
-      self.status == :verified
-    end
-
-    # good
     def ready?
       if last_reviewed_at > last_updated_at
         worker.update(content, options)
@@ -803,9 +794,18 @@ Never use `::` for regular method invocation.
       end
       status == :verified
     end
+
+    # good
+    def ready?
+      if self.last_reviewed_at > self.last_updated_at
+        self.worker.update(self.content, self.options)
+        self.status = :in_progress
+      end
+      self.status == :verified
+    end
     ```
 
-* As a corollary, avoid shadowing methods with local variables unless they are both equivalent.
+* Avoid shadowing methods with local variables unless they are both equivalent.
 
     ```Ruby
     class Foo
@@ -817,14 +817,14 @@ Never use `::` for regular method invocation.
         # both options and self.options are equivalent here
       end
 
-      # bad
+      # good
       def do_something(options = {})
         unless options[:when] == :later
           output(self.options[:message])
         end
       end
 
-      # good
+      # ok
       def do_something(params = {})
         unless params[:when] == :later
           output(options[:message])
