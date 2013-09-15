@@ -138,11 +138,12 @@ Translations of the guide are available in the following languages:
     class FooError < StandardError
     end
 
-    # okish
-    class FooError < StandardError; end
+    # okish, as long as the file will only be sourced once
+    # (i.e. not in autoreloaded rails files)
+    FooError = Class.new(StandardError)
 
     # good
-    FooError = Class.new(StandardError)
+    class FooError < StandardError; end
     ```
 
 * Avoid single-line methods. Although they are somewhat popular in the
