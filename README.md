@@ -198,38 +198,25 @@ Translations of the guide are available in the following languages:
     e = M * c**2
     ```
 
-    `{` and `}` deserve a bit of clarification, since they are used
-    for block and hash literals, as well as embedded expressions in
-    strings. For hash literals two styles are considered acceptable.
+    Always pad `{` and `}` with spaces in hash literals or blocks.
 
     ```Ruby
-    # good - space after { and before }
-    { one: 1, two: 2 }
-
-    # good - no space after { and before }
+    # bad
     {one: 1, two: 2}
+
+    # good
+    { one: 1, two: 2 }
     ```
 
-    The first variant is slightly more readable (and arguably more
-    popular in the Ruby community in general). The second variant has
-    the advantage of adding visual difference between block and hash
-    literals. Whichever one you pick - apply it consistently.
-
-    As far as embedded expressions go, there are also two acceptable
-    options:
+    Don't pad embedded expressions with spaces.
 
     ```Ruby
-    # good - no spaces
-    "string#{expr}"
-
-    # ok - arguably more readable
+    # bad
     "string#{ expr }"
-    ```
 
-    The first style is extremely more popular and you're generally
-    advised to stick with it. The second, on the other hand, is
-    (arguably) a bit more readable. As with hashes - pick one style
-    and apply it consistently.
+    # good
+    "string#{expr}"
+    ```
 
 * No spaces after `(`, `[` or before `]`, `)`.
 
