@@ -547,8 +547,9 @@ Never use `::` for regular method invocation.
     x = !something
     ```
 
-* The `and` and `or` keywords are banned. It's just not worth
-  it. Always use `&&` and `||` instead.
+* Use `and` and `or` for control flow, and `&&` and `||` for logic.
+  Remember that `and` and `or` bind similarly to postfix `if` and
+  `unless`.
 
     ```Ruby
     # bad
@@ -558,16 +559,17 @@ Never use `::` for regular method invocation.
     end
 
     # control flow
-    document.saved? or document.save!
+    document.saved? || document.save!
 
     # good
+    # control flow
+    take_out garbage or you.are_grounded!
+    document.saved? or document.save!
+
     # boolean expression
     if some_condition && some_other_condition
       do_something
     end
-
-    # control flow
-    document.saved? || document.save!
     ```
 
 * Avoid multi-line `?:` (the ternary operator); use `if/unless` instead.
@@ -585,11 +587,11 @@ Never use `::` for regular method invocation.
     do_something if some_condition
 
     # another good option
-    some_condition && do_something
+    some_condition and do_something
     ```
 
 * Favor `unless` over `if` for negative conditions (or control
-  flow `||`).
+  flow `or`)
 
     ```Ruby
     # bad
@@ -602,7 +604,7 @@ Never use `::` for regular method invocation.
     do_something unless some_condition
 
     # another good option
-    some_condition || do_something
+    some_condition or do_something
     ```
 
 * Never use `unless` with `else`. Rewrite these with the positive case first.
