@@ -327,9 +327,8 @@ Translations of the guide are available in the following languages:
     ```
 
 * Align the parameters of a method call if they span more than one
-  line. When aligning parameters is not appropriate due to line-length
-  constraints, single indent for the lines after the first is also
-  acceptable.
+  line. Options hashes should begin on the next line, with a single
+  indent.  The closing parenthesis should be dedented on its own line.
 
     ```Ruby
     # starting point (line is too long)
@@ -337,7 +336,7 @@ Translations of the guide are available in the following languages:
       Mailer.deliver(to: 'bob@example.com', from: 'us@example.com', subject: 'Important message', body: source.text)
     end
 
-    # bad (double indent)
+    # bad
     def send_mail(source)
       Mailer.deliver(
           to: 'bob@example.com',
@@ -346,7 +345,7 @@ Translations of the guide are available in the following languages:
           body: source.text)
     end
 
-    # good
+    # bad
     def send_mail(source)
       Mailer.deliver(to: 'bob@example.com',
                      from: 'us@example.com',
