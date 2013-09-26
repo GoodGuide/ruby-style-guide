@@ -1310,6 +1310,17 @@ setting the warn level to 0 via `-W0`).
     array.reverse_each { ... }
     ```
 
+* Prefer `#to_proc` style block syntax for messages without arguments.
+
+    ```Ruby
+    # bad
+    array.map { |a| a.to_i }
+
+    # good
+    array.map(&:to_i)
+    ```
+
+
 ## Comments
 
 > Good code is its own best documentation. As you're about to add a
