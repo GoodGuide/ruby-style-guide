@@ -210,7 +210,7 @@ Translations of the guide are available in the following languages:
     { one: 1, two: 2 }
     ```
 
-    The one exception is for single-line hash literals inside of a block:
+    The one exception is for single-line hash literals inside of a _single-line_ block:
     
     ```Ruby
     # good - no space after { and before }
