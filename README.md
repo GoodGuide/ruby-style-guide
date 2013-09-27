@@ -200,36 +200,32 @@ Translations of the guide are available in the following languages:
 
     `{` and `}` deserve a bit of clarification, since they are used
     for block and hash literals, as well as embedded expressions in
-    strings. For hash literals two styles are considered acceptable.
+    strings. For hash literals, use the following style:
 
     ```Ruby
+    # bad - no space after { and before }
+    {one: 1, two: 2}
+    
     # good - space after { and before }
     { one: 1, two: 2 }
-
-    # good - no space after { and before }
-    {one: 1, two: 2}
     ```
 
-    The first variant is slightly more readable (and arguably more
-    popular in the Ruby community in general). The second variant has
-    the advantage of adding visual difference between block and hash
-    literals. Whichever one you pick - apply it consistently.
-
-    As far as embedded expressions go, there are also two acceptable
-    options:
+    The one exception is for single-line hash literals inside of a block:
+    
+    ```Ruby
+    # good - no space after { and before }
+    let(:obj) { {one: 1, two: 2} }
+    ```
+    
+    When using braces for inline string expressions, don't leave extra spaces:
 
     ```Ruby
-    # good - no spaces
-    "string#{expr}"
-
-    # ok - arguably more readable
+    # bad - a bit more readable, but much less popular
     "string#{ expr }"
+    
+    # good - no spaces, the most popular style
+    "string#{expr}"
     ```
-
-    The first style is extremely more popular and you're generally
-    advised to stick with it. The second, on the other hand, is
-    (arguably) a bit more readable. As with hashes - pick one style
-    and apply it consistently.
 
 * No spaces after `(`, `[` or before `]`, `)`.
 
