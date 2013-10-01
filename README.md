@@ -1871,16 +1871,24 @@ Apply this rule only to arrays with two or more elements.
     STATES = %w(draft open closed)
     ```
 
-* Prefer `%i` to the literal array syntax when you need an array of
-symbols(and you don't need to maintain Ruby 1.9 compatibility). Apply
-this rule only to arrays with two or more elements.
+* Prefer the literal arary syntax to `%i` when you need an array of
+symbols. Prefer to put each symbol on its own line with a trailing
+comma (including the last item), except when the array is very short.
+If the order of the symbols is unimportant, sort the items alphabetically.
 
     ```Ruby
     # bad
-    STATES = [:draft, :open, :closed]
+    STATES = %i(draft open closed)
 
     # good
-    STATES = %i(draft open closed)
+    STATES = [:closed, :draft, :open]
+
+    # better
+    STATES = [
+      :closed,
+      :draft,
+      :open,
+    ]
     ```
 
 * Avoid the creation of huge gaps in arrays.
