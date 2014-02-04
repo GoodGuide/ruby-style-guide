@@ -1871,7 +1871,7 @@ Apply this rule only to arrays with two or more elements.
     STATES = %w(draft open closed)
     ```
 
-* Prefer the literal arary syntax to `%i` when you need an array of
+* Prefer the literal array syntax to `%i` when you need an array of
 symbols. Prefer to put each symbol on its own line with a trailing
 comma (including the last item), except when the array is very short.
 If the order of the symbols is unimportant, sort the items alphabetically.
