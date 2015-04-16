@@ -1,9 +1,6 @@
 # Indent private/protected/public as deep as method definitions
 Style/AccessModifierIndentation:
   EnforcedStyle: indent
-  SupportedStyles:
-    - outdent
-    - indent
 
 # Align the elements of a hash literal if they span more than one line.
 Style/AlignHash:
@@ -63,11 +60,6 @@ Style/AlignHash:
   #     function(a: 1,
   #       b: 2)
   EnforcedLastArgumentHashStyle: always_inspect
-  SupportedLastArgumentHashStyles:
-    - always_inspect
-    - always_ignore
-    - ignore_implicit
-    - ignore_explicit
 
 Style/AlignParameters:
   # Alignment of parameters in multi-line method calls.
@@ -84,42 +76,19 @@ Style/AlignParameters:
   #     method_call(a,
   #       b)
   EnforcedStyle: with_first_parameter
-  SupportedStyles:
-    - with_first_parameter
-    - with_fixed_indentation
 
 Style/AndOr:
   # Whether `and` and `or` are banned only in conditionals (conditionals)
   # or completely (always).
   EnforcedStyle: conditionals
-  SupportedStyles:
-    - always
-    - conditionals
 
 
 # Checks if usage of %() or %Q() matches configuration.
 Style/BarePercentLiterals:
   EnforcedStyle: percent_q
-  SupportedStyles:
-    - percent_q
-    - bare_percent
 
 Style/BlockDelimiters:
   EnforcedStyle: semantic
-  SupportedStyles:
-    # The `line_count_based` style enforces braces around single line blocks and
-    # do..end around multi-line blocks.
-    - line_count_based
-    # The `semantic` style enforces braces around functional blocks, where the
-    # primary purpose of the block is to return a value and do..end for
-    # procedural blocks, where the primary purpose of the block is its
-    # side-effects.
-    #
-    # This looks at the usage of a block's method to determine its type (e.g. is
-    # the result of a `map` assigned to a variable or passed to another
-    # method) but exceptions are permitted in the `ProceduralMethods`,
-    # `FunctionalMethods` and `IgnoredMethods` sections below.
-    - semantic
   ProceduralMethods:
     # Methods that are known to be procedural in nature but look functional from
     # their usage, e.g.
@@ -174,24 +143,10 @@ Style/BracesAroundHashParameters:
   EnforcedStyle: context_dependent
   # This is stuff like
   # get :index, { param: 'something' }, { session_value: 'abcd' }
-  SupportedStyles:
-    # The `braces` style enforces braces around all method parameters that are
-    # hashes.
-    - braces
-    # The `no_braces` style checks that the last parameter doesn't have braces
-    # around it.
-    - no_braces
-    # The `context_dependent` style checks that the last parameter doesn't have
-    # braces around it, but requires braces if the second to last parameter is
-    # also a hash literal.
-    - context_dependent
 
 # Indentation of `when`.
 Style/CaseIndentation:
   IndentWhenRelativeTo: case
-  SupportedStyles:
-    - case
-    - end
   IndentOneStep: false
 
 Style/ClassAndModuleChildren:
@@ -212,15 +167,9 @@ Style/ClassAndModuleChildren:
   # The compact style is only forced, for classes / modules with one child.
   Enabled: false
   EnforcedStyle: nested
-  SupportedStyles:
-    - nested
-    - compact
 
 Style/ClassCheck:
   EnforcedStyle: is_a?
-  SupportedStyles:
-    - is_a?
-    - kind_of?
 
 # Align with the style guide.
 Style/CollectionMethods:
@@ -243,10 +192,6 @@ Style/CommandLiteral:
   # backticks: Always use backticks.
   # percent_x: Always use %x.
   # mixed: Use backticks on single-line commands, and %x on multi-line commands.
-  SupportedStyles:
-    - backticks
-    - percent_x
-    - mixed
   # If false, the cop will always recommend using %x if one or more backticks
   # are found in the command string.
   AllowInnerBackticks: false
@@ -289,9 +234,6 @@ Style/Documentation:
 # Multi-line method chaining should be done with leading dots.
 Style/DotPosition:
   EnforcedStyle: leading
-  SupportedStyles:
-    - leading
-    - trailing
 
 # Warn on empty else statements
 # empty - warn only on empty else
@@ -299,10 +241,6 @@ Style/DotPosition:
 # both - warn on empty else and else with nil in it
 Style/EmptyElse:
   EnforcedStyle: both
-  SupportedStyles:
-    - empty
-    - nil
-    - both
 
 # Use empty lines between defs.
 Style/EmptyLineBetweenDefs:
@@ -312,21 +250,12 @@ Style/EmptyLineBetweenDefs:
 
 Style/EmptyLinesAroundBlockBody:
   EnforcedStyle: no_empty_lines
-  SupportedStyles:
-    - empty_lines
-    - no_empty_lines
 
 Style/EmptyLinesAroundClassBody:
   EnforcedStyle: no_empty_lines
-  SupportedStyles:
-    - empty_lines
-    - no_empty_lines
 
 Style/EmptyLinesAroundModuleBody:
   EnforcedStyle: no_empty_lines
-  SupportedStyles:
-    - empty_lines
-    - no_empty_lines
 
 # Checks whether the source file has a utf-8 encoding comment or not
 # AutoCorrectEncodingComment must match the regex
@@ -335,9 +264,6 @@ Style/Encoding:
   # Not needed in ruby >= 2.0, since the default encoding is UTF-8
   Enabled: false
   EnforcedStyle: always
-  SupportedStyles:
-    - when_needed
-    - always
   AutoCorrectEncodingComment: '# encoding: utf-8'
 
 Style/FileName:
@@ -348,33 +274,14 @@ Style/FileName:
 Style/FirstParameterIndentation:
   Enabled: false
   EnforcedStyle: special_for_inner_method_call_in_parentheses
-  SupportedStyles:
-    # The first parameter should always be indented one step more than the
-    # preceding line.
-    - consistent
-    # The first parameter should normally be indented one step more than the
-    # preceding line, but if it's a parameter for a method call that is itself
-    # a parameter in a method call, then the inner parameter should be indented
-    # relative to the inner method.
-    - special_for_inner_method_call
-    # Same as special_for_inner_method_call except that the special rule only
-    # applies if the outer method call encloses its arguments in parentheses.
-    - special_for_inner_method_call_in_parentheses
 
 # Checks use of for or each in multiline loops.
 Style/For:
   EnforcedStyle: each
-  SupportedStyles:
-    - for
-    - each
 
 # Enforce the method used for string formatting.
 Style/FormatString:
   EnforcedStyle: format
-  SupportedStyles:
-    - format
-    - sprintf
-    - percent
 
 # Built-in global variables are allowed by default.
 Style/GlobalVars:
@@ -387,10 +294,6 @@ Style/GuardClause:
 
 Style/HashSyntax:
   EnforcedStyle: ruby19
-  SupportedStyles:
-    - ruby19
-    - ruby19_no_mixed_keys
-    - hash_rockets
 # Force hashes that have a symbol value to use hash rockets
   UseHashRocketsWithSymbolValues: false
 
@@ -405,9 +308,6 @@ Style/IndentationConsistency:
   # modifiers. Other than that, both styles mean that entities on the same
   # logical depth shall have the same indentation.
   EnforcedStyle: normal
-  SupportedStyles:
-    - normal
-    - rails
 
 Style/IndentationWidth:
   # Number of spaces for each indentation level.
@@ -424,15 +324,9 @@ Style/IndentHash:
   # brace is.
   Enabled: false
   EnforcedStyle: special_inside_parentheses
-  SupportedStyles:
-    - special_inside_parentheses
-    - consistent
 
 Style/LambdaCall:
   EnforcedStyle: call
-  SupportedStyles:
-    - call
-    - braces
 
 Style/Next:
   # With `always` all conditions at the end of an iteration needs to be
@@ -443,9 +337,6 @@ Style/Next:
   # `MinBodyLength` defines the number of lines of the a body of an if / unless
   # needs to have to trigger this cop
   MinBodyLength: 3
-  SupportedStyles:
-    - skip_modifier_ifs
-    - always
 
 Style/NonNilCheck:
   # With `IncludeSemanticChanges` set to `true`, this cop reports offenses for
@@ -458,21 +349,12 @@ Style/NonNilCheck:
 
 Style/MethodDefParentheses:
   EnforcedStyle: require_parentheses
-  SupportedStyles:
-    - require_parentheses
-    - require_no_parentheses
 
 Style/MethodName:
   EnforcedStyle: snake_case
-  SupportedStyles:
-    - snake_case
-    - camelCase
 
 Style/MultilineOperationIndentation:
   EnforcedStyle: aligned
-  SupportedStyles:
-    - aligned
-    - indented
 
 Style/NumericLiterals:
   MinDigits: 5
@@ -495,9 +377,6 @@ Style/PercentLiteralDelimiters:
 
 Style/PercentQLiterals:
   EnforcedStyle: lower_case_q
-  SupportedStyles:
-    - lower_case_q # Use %q when possible, %Q when necessary
-    - upper_case_q # Always use %Q
 
 Style/PredicateName:
   # Predicate name prefices.
@@ -513,9 +392,6 @@ Style/PredicateName:
 
 Style/RaiseArgs:
   EnforcedStyle: exploded
-  SupportedStyles:
-    - compact # raise Exception.new(msg)
-    - exploded # raise Exception, msg
 
 Style/RedundantReturn:
   # When true allows code like `return x, y`.
@@ -528,10 +404,6 @@ Style/RegexpLiteral:
   # slashes: Always use slashes.
   # percent_r: Always use %r.
   # mixed: Use slashes on single-line regexes, and %r on multi-line regexes.
-  SupportedStyles:
-    - slashes
-    - percent_r
-    - mixed
   # If false, the cop will always recommend using %r if one or more slashes
   # are found in the regexp string.
   AllowInnerSlashes: false
@@ -544,10 +416,6 @@ Style/SignalException:
   # 'Use `fail` instead of `raise` to signal exceptions.'
   # 'Use `raise` instead of `fail` to re-raise exceptions.'
   EnforcedStyle: semantic
-  SupportedStyles:
-    - only_raise
-    - only_fail
-    - semantic
 
 Style/SingleLineBlockParams:
   Enabled: false
@@ -566,42 +434,24 @@ Style/SingleLineMethods:
 
 Style/StringLiterals:
   EnforcedStyle: single_quotes
-  SupportedStyles:
-    - single_quotes
-    - double_quotes
 
 Style/StringLiteralsInInterpolation:
   EnforcedStyle: single_quotes
-  SupportedStyles:
-    - single_quotes
-    - double_quotes
 
 Style/SpaceAroundBlockParameters:
   EnforcedStyleInsidePipes: no_space
-  SupportedStyles:
-    - space
-    - no_space
 
 Style/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
-  SupportedStyles:
-    - space
-    - no_space
 
 Style/SpaceAroundOperators:
   MultiSpaceAllowedForOperators: []
 
 Style/SpaceBeforeBlockBraces:
   EnforcedStyle: space
-  SupportedStyles:
-    - space
-    - no_space
 
 Style/SpaceInsideBlockBraces:
   EnforcedStyle: space
-  SupportedStyles:
-    - space
-    - no_space
   # Valid values are: space, no_space
   EnforcedStyleForEmptyBraces: no_space
   # Space between { and |. Overrides EnforcedStyle if there is a conflict.
@@ -612,9 +462,6 @@ Style/SpaceInsideHashLiteralBraces:
   EnforcedStyle: space
   # But this is totaly legit: {}
   EnforcedStyleForEmptyBraces: no_space
-  SupportedStyles:
-    - space
-    - no_space
 
 Style/SymbolProc:
   # This is "make people use &: instead of parameterless methods in blocks"
@@ -625,9 +472,6 @@ Style/SymbolProc:
 
 Style/TrailingBlankLines:
   EnforcedStyle: final_newline
-  SupportedStyles:
-    - final_newline
-    - final_blank_line
 
 Style/TrailingComma:
   # If EnforcedStyleForMultiline is comma, the cop requires a comma after the
@@ -635,10 +479,6 @@ Style/TrailingComma:
   # If EnforcedStyleForMultiline is consistent_comma, the cop requires a comma
   # after the last item of a list, for all lists.
   EnforcedStyleForMultiline: comma
-  SupportedStyles:
-    - comma
-    - consistent_comma
-    - no_comma
 
 # TrivialAccessors requires exact name matches and doesn't allow
 # predicated methods by default.
@@ -684,9 +524,6 @@ Style/TrivialAccessors:
 
 Style/VariableName:
   EnforcedStyle: snake_case
-  SupportedStyles:
-    - snake_case
-    - camelCase
 
 Style/WhileUntilModifier:
   MaxLineLength: 80
@@ -759,9 +596,6 @@ Lint/EndAlignment:
   # with the start of the variable on the left hand side of `=`. In all other
   # situations, `end` should still be aligned with the keyword.
   AlignWith: variable
-  SupportedStyles:
-    - keyword
-    - variable
 
 Lint/DefEndAlignment:
   # The value `def` means that `end` should be aligned with the def keyword.
@@ -769,9 +603,6 @@ Lint/DefEndAlignment:
   # calls like `private`, `public`, etc, if present in front of the `def`
   # keyword on the same line.
   AlignWith: start_of_line
-  SupportedStyles:
-    - start_of_line
-    - def
 
 ##################### Rails ##################################
 # We don't really like the feature creep of rails linting, so we are ignoring it for now
@@ -780,9 +611,6 @@ Lint/DefEndAlignment:
 Rails/ActionFilter:
   Enabled: false
   EnforcedStyle: action
-  SupportedStyles:
-    - action
-    - filter
   Include:
     - app/controllers/**/*.rb
 
@@ -794,9 +622,6 @@ Rails/Date:
   # (but not `Date.today`) which are overriden by ActiveSupport to handle current
   # time zone.
   EnforcedStyle: always
-  SupportedStyles:
-    - always
-    - acceptable
 
 Rails/DefaultScope:
   Enabled: false
@@ -841,9 +666,6 @@ Rails/TimeZone:
   # The value `always` means that `Time` should be used with `zone`.
   # The value `acceptable` allows usage of `in_time_zone` instead of `zone`.
   EnforcedStyle: always
-  SupportedStyles:
-    - always
-    - acceptable
 
 Rails/Validation:
   Enabled: false
